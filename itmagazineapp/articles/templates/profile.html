@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Test</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'articles/style.css' %}">
+
+</head>
+<body>
+
+    <h1>Profile</h1>
+
+    <div class="topnav">
+        <a href="#read"><strong>Read</strong></a>
+        <a href="#workspace">Workspace</a>
+        <a href="#profile">Profile</a>
+    </div>
+
+    {% block content %}
+
+        <h2>USER PROFILE</h2>
+
+        <form action= "" method="POST"> {% csrf_token %} 
+            
+            {{ form_user.as_p }}
+
+            <input type="submit" value = "Register"/>
+
+        </form>
+
+    {% endblock %}
+
+</body>
+</html>

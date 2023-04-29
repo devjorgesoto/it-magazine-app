@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from .models import Writer, Reader, Article
+from .models import User, Article
 
-admin.site.register(Writer)
-admin.site.register(Reader)
+admin.site.register(User)
 admin.site.register(Article)

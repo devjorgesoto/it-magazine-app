@@ -7,43 +7,50 @@
 
     <title>Test</title>
 
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'articles/style.css' %}">
+
 </head>
 <body>
-    
 
-    <h1>Test</h1>
-   
+    <h1>Home</h1>
+
+    <div class="topnav">
+        <a href="#read"><strong>Read</strong></a>
+        <a href="#workspace">Workspace</a>
+        <a href="#profile">Profile</a>
+    </div>
+
     {% block content %}
+    
+    <h2>Trending</h2>
 
-        <h2>WRITER</h2>
+        {% for article in article_result %}
 
-        <form action= "" method="POST"> {% csrf_token %} 
-            
-            {{ form_writer.as_p }}
+        <ul>
+            <il><strong>{{ article.headline }}</strong></il>
+            <br>
+            <il>{{ article.user.first_name }} {{ article.user.last_last }} </il>
+            <br>
+            <il>{{ article.description }} </il>
+        </ul>
+    
+        {% endfor %}
+   
+    <h2>Recommended</h2>
 
-            <input type="submit" value = "Register"/>
+    {% for article in article_result %}
 
-        </form>
-
-        <h2>READER</h2>
-
-        <form action= "" method="POST"> {% csrf_token %} 
-            
-            {{ form_reader.as_p }}
-
-            <input type="submit" value = "Register"/>
-
-        </form>
-
-        <h2>ARTICLE</h2>
-
-        <form action= "" method="POST"> {% csrf_token %} 
-            
-            {{ form_article.as_p }}
-
-            <input type="submit" value = "Register"/>
-
-        </form>
+        <ul>
+            <il><strong>{{ article.headline }}</strong></il>
+            <br>
+            <il>{{ article.user.first_name }} {{ article.user.last_last }} </il>
+            <br>
+            <il>{{ article.description }} </il>
+        </ul>
+    
+    {% endfor %}
 
     {% endblock %}
 

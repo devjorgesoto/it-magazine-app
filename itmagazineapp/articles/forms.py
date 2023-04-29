@@ -1,16 +1,11 @@
 from django import forms
 from django.forms import ModelForm
 
-from .models import Writer, Reader, Article
+from .models import User, Article
 
-class WriterForm (ModelForm):
+class UserForm (ModelForm):
     class Meta:
-        model = Writer
-        fields = "__all__"
-
-class ReaderForm (ModelForm):
-    class Meta:
-        model = Reader
+        model = User
         fields = "__all__"
 
 class ArticleForm (ModelForm):

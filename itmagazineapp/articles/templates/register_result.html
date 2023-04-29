@@ -11,12 +11,26 @@
 <body>
 
     <h1>Test Register</h1>
+
+    
    
     {% block content %}
 
     {% for writer in writer_result %}
 
-        {{ writer.first_name }}
+    <ul>
+
+        <il><strong>Writer Profile {{ writer.first_name }}</strong></il>
+        <br>
+        <il>First Name: {{ writer.first_name }} </il>
+        <br>
+        <il>Last Name: {{ writer.last_last }} </il>
+        <br>
+        <il>Bio: {{ writer.short_description }} </il>
+        <br>
+        <il>About: {{ writer.long_description }} </il>
+
+    </ul>
 
     {% endfor %}
 

@@ -4,7 +4,7 @@
 /* Add a black background color to the top navigation */
 .topnav {
 
-    background-color: #00002B;
+    background-color: black;
     overflow:auto;
 
 }
@@ -13,7 +13,7 @@
 .topnav a {
 
     float: left;
-    color: #f2f2f2;
+    color: white;
     text-align: center;
     padding: 12px 12px;
     text-decoration: none;

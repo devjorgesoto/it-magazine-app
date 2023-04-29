@@ -6,7 +6,7 @@ urlpatterns = [
 
     # Remember: Every path here have "articles/" added before.
 
-    path( "" , views.home, name="home"),
-    path( "article/" , views.article, name="article"),
+    path("register_result/", views.register_result, name="register_result"),
+    path("" , views.home, name="home"),
 
 ]

@@ -5,53 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Articles</title>
-
-    {% load static %}
-
-    <link rel="stylesheet" href="{% static 'articles/style.css' %}">
-
+    <title>Test</title>
 
 </head>
 <body>
     
 
-    <h1>IT MAGAZINE test</h1>
-
-    <div class="topnav">
-        <a href="#story"><strong>Story</strong></a>
-        <a href="#share">Share</a>
-        <a href="#signin">Sign In</a>
-        <a href="#getstarted">Get Started</a>
-
-        <a href="#story">Story</a>
-        <a href="#share">Share</a>
-        <a href="#signin">Sign In</a>
-        <a href="#getstarted"><strong>Started</strong></a>
-
-    </div>
-
+    <h1>Test</h1>
    
-    <h2>Recommended</h2>
+    {% block content %}
 
-    <ul>
-        <li>Introducing Code-Generator EX for AMPLE</li>
-        <li>Singapore Tech Summit 2025</li>
-        <li>Research EXP : EX Data is not enough for AI</li>
-        <li>Good Relationship: AMPLE and EX create EX VR prototype</li>
-        
-        
-    </ul>
+        <h2>WRITER</h2>
 
-    <h2>Footer</h2>
+        <form action= "" method="POST"> {% csrf_token %} 
+            
+            {{ form_writer.as_p }}
 
-    <ul>
-        <li>Learn More</li>
-        <li>About</li>
-        <li>Help</li>
-        <li>Support Us</li>
-        <li>1995- 2025</li>
-    </ul>
+            <input type="submit" value = "Register"/>
+
+        </form>
+
+        <h2>READER</h2>
+
+        <form action= "" method="POST"> {% csrf_token %} 
+            
+            {{ form_reader.as_p }}
+
+            <input type="submit" value = "Register"/>
+
+        </form>
+
+        <h2>ARTICLE</h2>
+
+        <form action= "" method="POST"> {% csrf_token %} 
+            
+            {{ form_article.as_p }}
+
+            <input type="submit" value = "Register"/>
+
+        </form>
+
+    {% endblock %}
 
 </body>
 </html>

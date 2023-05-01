@@ -23,11 +23,11 @@
     <h2>Trending</h2>
 
         {% for article in article_obj %}
-
+        
         <ul>
             <il><a href="{% url 'read' article.id %}"><strong>{{ article.headline }}</strong></a></il>
             <br>
-            <il><a href="{% url 'profile' user.id %}">{{ article.user.first_name }} {{ article.user.last_last }} </a></il>
+            <il><a href="{% url 'profile' article.user.id %}">{{ article.user.first_name }} {{ article.user.last_name }}</a></il> <!-- Hard Bug here Be consistent with url path article.user.id -->
             <br>
             <il>{{ article.description }} </il>
         </ul>
@@ -36,17 +36,17 @@
    
     <h2>Recommended</h2>
 
-    {% for article in article_obj %}
-
+        {% for article in article_obj %}
+            
         <ul>
             <il><a href="{% url 'read' article.id %}"><strong>{{ article.headline }}</strong></a></il>
             <br>
-            <il><a href="{% url 'profile' user.id %}">{{ article.user.first_name }} {{ article.user.last_last }} </a></il>
+            <il><a href="{% url 'profile' article.user.id %}">{{ article.user.first_name }} {{ article.user.last_name }}</a></il> <!-- Hard Bug here Be consistent with url path article.user.id -->
             <br>
             <il>{{ article.description }} </il>
         </ul>
-    
-    {% endfor %}
+
+        {% endfor %}
 
     {% endblock %}
 

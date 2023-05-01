@@ -14,20 +14,25 @@
 </head>
 <body>
 
-    <h1>Profile</h1>
-
     {% block content %}
 
-    {% include 'topnav.html'%}
+    <h1>Edit</h1>
 
+    {% include 'topnav.html'%}
+    
         <ul>
             <br>
-            <il><h1>{{profile_obj.first_name}} {{profile_obj.last_name}}</h1></il>
-            <il><h2 style="font-weight:normal;">{{profile_obj.short_description}}</h2></il>
             <br>
-            <il>{{profile_obj.long_description}} </il>
+            <il>{{ article_obj.user.first_name }} {{ article_obj.user.last_name }} </il>
+            <br>
+            <il><h1>{{ article_obj.headline }}</h1></il>
+            <il><h2 style="font-weight:normal;">{{ article_obj.description}}</h2></il>
+            <br>
+            <il>{{ article_obj.body }} </il>
+            <br>
         </ul>
-
+    
+    
     {% endblock %}
 
 </body>

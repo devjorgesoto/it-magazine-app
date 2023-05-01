@@ -16,19 +16,29 @@ def read(request ,article_id):
     
     article_obj= Article.objects.get(id=article_id)
     
-    #print (article_obj.description)
-    
     context = {'article_obj' : article_obj }
     return render (request, "read.html", context)
 
-def workspace (request):
+def edit_article(request ,article_id):
     
+    article_obj= Article.objects.get(id=article_id)
+    
+    context = {'article_obj' : article_obj }
+    return render (request, "edit_article.html", context)
+
+def workspace (request):
+
+    # preview existing articles
+    article_obj= Article.objects.all()
+
+    # create new article
     form_article = ArticleForm(request.POST or None)
 
     if form_article.is_valid():
-            form_article.save()   
+            form_article.save()  
 
-    context = {'form_article':form_article }
+    # context and return
+    context = {'form_article':form_article, 'article_obj':article_obj}
     return render (request, "workspace.html", context )   
 
 def sign_up(request):
@@ -45,6 +55,6 @@ def home(request):
 
     article_obj = Article.objects.all()
 
-    context = {'article_obj' : article_obj}
+    context = {'article_obj' : article_obj }
 
     return render(request, 'home.html', context)

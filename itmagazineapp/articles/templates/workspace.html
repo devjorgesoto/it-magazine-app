@@ -14,17 +14,33 @@
 </head>
 <body>
 
-    <h1>Workspace</h1>
-    
     {% block content %}
 
-        {% include 'topnav.html'%}
+    <h1>Workspace</h1>
+    
+    {% include 'topnav.html'%}
+
+    <h2>Previous</h2>
+
+        {% for article in article_obj%}
+
+            <ul>
+
+                <il><a href="{% url 'read' article.user.id %}"><strong>{{article.headline}}</strong></a></il>
+                <br>
+                <il>{{article.user.first_name}} {{article.user.last_name}}</il>
+
+            </ul>
+
+        {% endfor %}
+
+    <h2>Start new article</h2>
 
         <form action= "" method="POST"> {% csrf_token %} 
             
             {{ form_article.as_p }}
 
-            <input type="submit" value = "Register"/>
+            <input type="submit" value = "Create"/>
 
         </form>
 

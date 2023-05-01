@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,27 +13,36 @@
     <link rel="stylesheet" href="{% static 'articles/style.css' %}">
 
 </head>
-<body>
 
-    <h1>Read</h1>
+<body>
 
     {% block content %}
 
+    <h1>Read</h1>
+
     {% include 'topnav.html'%}
-    
-        <ul>
-            <br>
-            <il>{{ article_obj.user.first_name }} {{ article_obj.user.last_last }} </il>
-            <br>
-            <il><h1>{{ article_obj.headline }}</h1></il>
-            <il><h2 style="font-weight:normal;">{{ article_obj.description}}</h2></il>
-            <br>
-            <il>{{ article_obj.body }} </il>
-            <br>
-        </ul>
-    
-    
+
+    <ul>
+        <br>
+        <il><a href="{% url 'editarticle' article_obj.id %}">edit</a></il>
+        <br>
+        <br>
+        <il>{{ article_obj.user.first_name }} {{ article_obj.user.last_name }} </il>
+        <br>
+        <il>
+            <h1>{{ article_obj.headline }}</h1>
+        </il>
+        <il>
+            <h2 style="font-weight:normal;">{{ article_obj.description}}</h2>
+        </il>
+        <br>
+        <il>{{ article_obj.body }} </il>
+        <br>
+    </ul>
+
+
     {% endblock %}
 
 </body>
+
 </html>

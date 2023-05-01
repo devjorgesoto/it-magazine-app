@@ -16,23 +16,17 @@
 
     <h1>Profile</h1>
 
-    <div class="topnav">
-        <a href="#read"><strong>Read</strong></a>
-        <a href="#workspace">Workspace</a>
-        <a href="#profile">Profile</a>
-    </div>
-
     {% block content %}
 
-        <h2>USER PROFILE</h2>
+    {% include 'topnav.html'%}
 
-        <form action= "" method="POST"> {% csrf_token %} 
-            
-            {{ form_user.as_p }}
-
-            <input type="submit" value = "Register"/>
-
-        </form>
+        <ul>
+            <br>
+            <il><h1>{{profile_obj.first_name}} {{profile_obj.last_last}}</h1></il>
+            <il><h2 style="font-weight:normal;">{{profile_obj.short_description}}</h2></il>
+            <br>
+            <il>{{profile_obj.long_description}} </il>
+        </ul>
 
     {% endblock %}
 

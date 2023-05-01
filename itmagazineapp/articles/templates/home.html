@@ -16,36 +16,32 @@
 
     <h1>Home</h1>
 
-    <div class="topnav">
-        <a href="#read"><strong>Read</strong></a>
-        <a href="#workspace">Workspace</a>
-        <a href="#profile">Profile</a>
-    </div>
-
     {% block content %}
-    
+
+    {% include 'topnav.html'%}
+
     <h2>Trending</h2>
 
-        {% for article in article_result %}
+        {% for article in article_obj %}
 
         <ul>
-            <il><strong>{{ article.headline }}</strong></il>
+            <il><a href="{% url 'read' article.id %}"><strong>{{ article.headline }}</strong></a></il>
             <br>
-            <il>{{ article.user.first_name }} {{ article.user.last_last }} </il>
+            <il><a href="{% url 'profile' user.id %}">{{ article.user.first_name }} {{ article.user.last_last }} </a></il>
             <br>
             <il>{{ article.description }} </il>
         </ul>
-    
+
         {% endfor %}
    
     <h2>Recommended</h2>
 
-    {% for article in article_result %}
+    {% for article in article_obj %}
 
         <ul>
-            <il><strong>{{ article.headline }}</strong></il>
+            <il><a href="{% url 'read' article.id %}"><strong>{{ article.headline }}</strong></a></il>
             <br>
-            <il>{{ article.user.first_name }} {{ article.user.last_last }} </il>
+            <il><a href="{% url 'profile' user.id %}">{{ article.user.first_name }} {{ article.user.last_last }} </a></il>
             <br>
             <il>{{ article.description }} </il>
         </ul>

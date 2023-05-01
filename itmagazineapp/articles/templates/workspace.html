@@ -15,14 +15,10 @@
 <body>
 
     <h1>Workspace</h1>
-
-    <div class="topnav">
-        <a href="#read"><strong>Read</strong></a>
-        <a href="#workspace">Workspace</a>
-        <a href="#profile">Profile</a>
-    </div>
     
     {% block content %}
+
+        {% include 'topnav.html'%}
 
         <form action= "" method="POST"> {% csrf_token %} 
             

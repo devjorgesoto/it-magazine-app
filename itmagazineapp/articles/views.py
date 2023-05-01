@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.http import HttpResponse
+
 
 from .forms import UserForm, ArticleForm
 from .models import User, Article
@@ -22,8 +24,21 @@ def read(request ,article_id):
 def edit_article(request ,article_id):
     
     article_obj= Article.objects.get(id=article_id)
+
+    # show existing article in edit(form) mode. just show !!!
+    # for new forms => form_article = ArticleForm(request.POST or None)
+    form_article = ArticleForm(instance=article_obj) 
     
-    context = {'article_obj' : article_obj }
+    # update edited article
+    # this if keeps form pre-populated, without this line = blank form
+    if request.method == 'POST': 
+        form_article = ArticleForm(request.POST, instance=article_obj)
+
+        if form_article.is_valid():
+                form_article.save()
+                return redirect('/read/'+ str(article_obj.id)) # Correct?
+
+    context = {'article_obj' : article_obj, 'form_article' : form_article }
     return render (request, "edit_article.html", context)
 
 def workspace (request):

@@ -20,17 +20,15 @@
 
     {% include 'topnav.html'%}
     
-        <ul>
-            <br>
-            <br>
-            <il>{{ article_obj.user.first_name }} {{ article_obj.user.last_name }} </il>
-            <br>
-            <il><h1>{{ article_obj.headline }}</h1></il>
-            <il><h2 style="font-weight:normal;">{{ article_obj.description}}</h2></il>
-            <br>
-            <il>{{ article_obj.body }} </il>
-            <br>
-        </ul>
+        <h2>Edit article</h2>
+
+        <form action= "" method="POST"> {% csrf_token %} 
+            
+            {{ form_article.as_p }}
+
+            <input type="submit" value = "Create"/>
+
+        </form>
     
     
     {% endblock %}

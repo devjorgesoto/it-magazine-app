@@ -7,14 +7,8 @@
 
     <title>Test</title>
 
-    {% load static %}
-
-    <link rel="stylesheet" href="{% static 'articles/style.css' %}">
-
 </head>
 <body>
-
-    <h1>Home</h1>
 
     {% block content %}
 
@@ -47,6 +41,8 @@
         </ul>
 
         {% endfor %}
+
+        {% include 'footer.html'%}
 
     {% endblock %}
 

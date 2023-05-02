@@ -7,14 +7,8 @@
 
     <title>Test</title>
 
-    {% load static %}
-
-    <link rel="stylesheet" href="{% static 'articles/style.css' %}">
-
 </head>
 <body>
-
-    <h1>Profile</h1>
 
     {% block content %}
 
@@ -27,6 +21,8 @@
             <br>
             <il>{{profile_obj.long_description}} </il>
         </ul>
+
+        {% include 'footer.html'%}
 
     {% endblock %}
 

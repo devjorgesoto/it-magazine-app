@@ -8,17 +8,11 @@
 
     <title>Test</title>
 
-    {% load static %}
-
-    <link rel="stylesheet" href="{% static 'articles/style.css' %}">
-
 </head>
 
 <body>
 
     {% block content %}
-
-    <h1>Read</h1>
 
     {% include 'topnav.html'%}
 
@@ -40,6 +34,8 @@
         <br>
     </ul>
 
+
+        {% include 'footer.html'%}
 
     {% endblock %}
 

@@ -7,16 +7,12 @@
 
     <title>Test</title>
 
-    {% load static %}
-
-    <link rel="stylesheet" href="{% static 'articles/style.css' %}">
+    
 
 </head>
 <body>
 
     {% block content %}
-
-    <h1>Edit</h1>
 
     {% include 'topnav.html'%}
     
@@ -26,10 +22,11 @@
             
             {{ form_article.as_p }}
 
-            <input type="submit" value = "Create"/>
+            <input type="submit" value = "Save"/>
 
         </form>
     
+        {% include 'footer.html'%}
     
     {% endblock %}
 

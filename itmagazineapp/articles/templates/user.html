@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Test</title>
+
+</head>
+<body>
+
+    {% block content %}
+
+    {% include 'topnav.html'%}
+
+        <ul style="list-style-type:none;">
+            <br>
+            <li><a href="{% url 'edituser' user_obj.id %}">edit user</a></li>
+            <br>
+            <li><h1>{{user_obj.first_name}} {{user_obj.last_name}}</h1></li>
+            <li><h2>{{user_obj.short_description}}</h2></li>
+            <br>
+            <li>{{user_obj.long_description}} </li>
+        </ul>
+        
+        <ul style="list-style-type:none;">
+            
+            <li><h2>Articles</h2></li>
+
+                {% for article in article_obj %}
+
+                    <!--This line filter articles by user-->
+                    {% if article.user.id == user_obj.id %} 
+                       
+                        <il><a href="{% url 'article' article.id %}"><strong>{{ article.headline }}</strong></a></il>
+                        <br>
+                        <il><a href="{% url 'user' article.user.id %}">{{ article.user.first_name }} {{ article.user.last_name }}</a></il> <!-- Hard Bug here Be consistent with url path article.user.id -->
+                        <br>
+                        <il>{{ article.description }} </il>
+                        <br>
+                        <br>
+
+                    {% endif %}
+
+                {% endfor %}
+        </ul>
+
+        {% include 'footer.html'%}
+
+    {% endblock %}
+
+</body>
+</html>

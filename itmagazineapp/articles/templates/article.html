@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Test</title>
+
+</head>
+
+<body>
+
+    {% block content %}
+
+    {% include 'topnav.html'%}
+
+    <ul style="list-style-type:none;">
+        <br>
+        <li><a href="{% url 'editarticle' article_obj.id %}">edit article</a></li>
+        <br>
+        <br>
+        <li><a href="{% url 'user' article_obj.user.id%}">{{ article_obj.user.first_name }} {{ article_obj.user.last_name }}</a></il>
+        <br>
+        <li><h1>{{ article_obj.headline }}</h1></li>
+        <li><h2 style="font-weight:normal;">{{ article_obj.description}}</h2></li>
+        <br>
+        <li>{{ article_obj.body }} </li>
+        <br>
+    </ul>
+
+    {% for comment in comment_obj %}
+
+        {% if comment.article.id == article_obj.id %} 
+                       
+            <ul>
+                <il><strong>{{ comment.user.first_name }} {{ comment.user.last_name }}</strong></il> 
+                <br>
+                <il>{{ comment.body }} </il>
+            </ul>
+                   
+        {% endif %}
+            
+    {% endfor %}
+
+    <form action= "" method="POST"> {% csrf_token %} 
+
+        <ul style="list-style-type:none;">
+
+            <li><strong>Comments</strong></li>
+
+            <li>{{form_comment.user }}</li>
+            <br>
+            <li>{{form_comment.article}}</li>
+            <br>
+            <li>{{form_comment.body}}</li>
+            <br>
+        
+            <input type="submit" value = "Comment"/>
+
+        </ul>
+
+    </form>
+
+        {% include 'footer.html'%}
+
+    {% endblock %}
+
+</body>
+
+</html>

@@ -2,14 +2,14 @@
 
     {% load static %}
 
-<link rel="stylesheet" href="{% static 'articles/style.css' %}">
+<link rel="stylesheet" href="{% static 'articles/css/style.css' %}">
 
 <h1><a href="{% url 'home' %}">[it.w]</a></h1>
 
 <div class="topnav">
     <a href="{% url 'home' %}"><strong>Read</strong></a>
     <a href="{% url 'workspace' %}">Workspace</a>
-    <a href="#profile">Profile</a>
+    <a href="#user">Profile</a>
     <a href="{% url 'signup' %}">Sign Up</a>
 </div>
 

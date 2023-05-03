@@ -19,9 +19,9 @@
         {% for article in article_obj %}
         
         <ul>
-            <il><a href="{% url 'read' article.id %}"><strong>{{ article.headline }}</strong></a></il>
+            <il><a href="{% url 'article' article.id %}"><strong>{{ article.headline }}</strong></a></il>
             <br>
-            <il><a href="{% url 'profile' article.user.id %}">{{ article.user.first_name }} {{ article.user.last_name }}</a></il> <!-- Hard Bug here Be consistent with url path article.user.id -->
+            <il><a href="{% url 'user' article.user.id %}">{{ article.user.first_name }} {{ article.user.last_name }}</a></il> <!-- Hard Bug here Be consistent with url path article.user.id -->
             <br>
             <il>{{ article.description }} </il>
         </ul>
@@ -33,9 +33,9 @@
         {% for article in article_obj %}
             
         <ul>
-            <il><a href="{% url 'read' article.id %}"><strong>{{ article.headline }}</strong></a></il>
+            <il><a href="{% url 'article' article.id %}"><strong>{{ article.headline }}</strong></a></il>
             <br>
-            <il><a href="{% url 'profile' article.user.id %}">{{ article.user.first_name }} {{ article.user.last_name }}</a></il> <!-- Hard Bug here Be consistent with url path article.user.id -->
+            <il><a href="{% url 'user' article.user.id %}">{{ article.user.first_name }} {{ article.user.last_name }}</a></il> <!-- Hard Bug here Be consistent with url path article.user.id -->
             <br>
             <il>{{ article.description }} </il>
         </ul>

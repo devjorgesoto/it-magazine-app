@@ -18,7 +18,7 @@
             
             <ul style="list-style-type:none;">
 
-                <h2>Sign Up</h2>
+                <h2>Edit Profile</h2>
 
                 <li><strong>First Name</strong></li>
                 <li>{{ form_user.first_name }}</li>
@@ -33,6 +33,14 @@
                 <br>
                 <br>
 
+                <li><strong>Bio</strong></li>
+                <li>{{ form_user.short_description }}</li>
+                <br>
+                <li><strong>About</strong></li>
+                <li>{{ form_user.long_description }}</li>
+                <br>
+                <br>
+
                 <li><strong>Email</strong></li>
                 <li>{{ form_user.email }}</li>
                 <br>
@@ -41,14 +49,14 @@
                 <br>
                 <br>
 
-                <input type="submit" value = "Sign Up"/>
+                <input type="submit" value = "Save Changes"/>
 
             </ul>
             
         </form>
-
+    
         {% include 'footer.html'%}
-
+    
     {% endblock %}
 
 </body>

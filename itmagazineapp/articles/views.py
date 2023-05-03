@@ -1,25 +1,52 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.http import HttpResponse
+from .forms import UserForm, ArticleForm, CommentForm
+from .models import User, Article, Comment
 
-
-from .forms import UserForm, ArticleForm
-from .models import User, Article
-
-def profile(request, user_id):
+def user(request, user_id):
     
-    profile_obj = User.objects.get(id=user_id)
+    user_obj = User.objects.get(id=user_id)
 
-    context = {'profile_obj':profile_obj}
-    return render (request,"profile.html", context)
+    article_obj = Article.objects.all()
+
+    context = {'user_obj':user_obj, 'article_obj':article_obj}
+    return render (request,"user.html", context)
+
+
+def edit_user(request ,user_id):
     
+    user_obj= User.objects.get(id=user_id)
 
-def read(request ,article_id):
+    # show existing article in edit(form) mode. just show !!!
+    # for new forms => form_article = ArticleForm(request.POST or None)
+    form_user = UserForm(instance=user_obj) 
+    
+    # update edited article
+    # this if keeps form pre-populated, without this line = blank form
+    if request.method == 'POST': 
+        form_user = UserForm(request.POST, instance=user_obj)
+
+        if form_user.is_valid():
+                form_user.save()
+                return redirect('/user/'+ str(user_obj.id))
+
+    context = {'user_obj' : user_obj, 'form_user' : form_user }
+    return render (request, "edit_user.html", context)
+
+def article(request ,article_id):
     
     article_obj= Article.objects.get(id=article_id)
+
+    comment_obj = Comment.objects.all()
+    #create comments
+    form_comment = CommentForm(request.POST or None)
+
+    if form_comment.is_valid():
+      form_comment.save()
+      return redirect('/article/'+ str(article_obj.id))   
     
-    context = {'article_obj' : article_obj }
-    return render (request, "read.html", context)
+    #context and return
+    context = {'article_obj' : article_obj,'form_comment':form_comment, 'comment_obj':comment_obj }
+    return render (request, "article.html", context)
 
 def edit_article(request ,article_id):
     
@@ -36,7 +63,7 @@ def edit_article(request ,article_id):
 
         if form_article.is_valid():
                 form_article.save()
-                return redirect('/read/'+ str(article_obj.id)) # Correct?
+                return redirect('/article/'+ str(article_obj.id)) # Correct?
 
     context = {'article_obj' : article_obj, 'form_article' : form_article }
     return render (request, "edit_article.html", context)
@@ -53,7 +80,7 @@ def workspace (request):
             form_article.save()  
 
     # context and return
-    context = {'form_article':form_article, 'article_obj':article_obj}
+    context = {'article_obj':article_obj, 'form_article':form_article,}
     return render (request, "workspace.html", context )   
 
 def sign_up(request):

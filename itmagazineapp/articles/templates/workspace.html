@@ -20,7 +20,7 @@
 
             <ul>
 
-                <il><a href="{% url 'read' article.user.id %}"><strong>{{article.headline}}</strong></a></il>
+                <il><a href="{% url 'article' article.user.id %}"><strong>{{article.headline}}</strong></a></il>
                 <br>
                 <il>{{article.user.first_name}} {{article.user.last_name}}</il>
 
@@ -32,10 +32,33 @@
 
         <form action= "" method="POST"> {% csrf_token %} 
             
-            {{ form_article.as_p }}
+            <ul style="list-style-type:none;">
+                
+                <li><strong>User</strong></li>
+                <li>{{ form_article.user }}</li>
+                <br>
+                <li><strong>Headline</strong></li>
+                <li>{{ form_article.headline }}</li>
+                <br>
+                <li><strong>Description</strong></li>
+                <li>{{ form_article.description }}</li>
+                <br>
+                <li><strong>Body</strong></li>
+                <li>{{ form_article.body }}</li>
+                <br>
 
-            <input type="submit" value = "Create"/>
+                <li><strong>Date</strong></li>
+                <li>{{ form_article.date_published }}</li>
+                <br>
+                <li><strong>Location</strong></li>
+                <li>{{ form_article.location }}</li>
+                <br>
+                <br>
 
+                <input type="submit" value = "Publish"/>
+
+            </ul>
+            
         </form>
 
         {% include 'footer.html'%}

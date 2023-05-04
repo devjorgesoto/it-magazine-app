@@ -24,3 +24,7 @@ about (short)
 followers
 following
 social media
+
+<li><strong>Date</strong></li>
+                <li>{{ form_article.date_published }}</li>
+                <br>

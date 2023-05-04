@@ -1,0 +1,29 @@
+<form action= "" method="POST"> {% csrf_token %}       
+        <ul style="list-style-type:none;">
+
+            <h2>Sign Up</h2>
+
+            <li><strong>First Name</strong></li>
+            <li>{{ form_user.first_name }}</li>
+            <br>
+            <li><strong>Last Name</strong></li>
+            <li>{{ form_user.last_name }}</li>
+            <br>
+            <br>
+            <li><strong>Username</strong></li>
+            <li>{{ form_user.username }}</li>
+            <br>
+            <br>
+            <li><strong>Email</strong></li>
+            <li>{{ form_user.email }}</li>
+            <br>
+            <li><strong>Password</strong></li>
+            <li>{{ form_user.password }}</li>
+            <br>
+            <br>
+
+            <input type="submit" value = "Sign Up"/>
+
+        </ul>
+    </form>
+   

@@ -12,18 +12,12 @@
 
     {% block content %}
 
-    {% include 'topnav.html'%}
-    
+        {% include 'topnav.html'%}
+        
         <h2>Edit article</h2>
 
-        <form action= "" method="POST"> {% csrf_token %} 
-            
-            {{ form_article.as_p }}
+        {% include 'form-article.html'%}
 
-            <input type="submit" value = "Save Changes"/>
-
-        </form>
-    
         {% include 'footer.html'%}
     
     {% endblock %}

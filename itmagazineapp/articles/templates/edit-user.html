@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Home</title>
+    <title>Test</title>
 
 </head>
 <body>
@@ -13,17 +13,11 @@
     {% block content %}
 
         {% include 'topnav.html'%}
-
-        <h2>Trending</h2>
-
-        {% include 'list-articles.html'%}
-    
-        <h2>Recommended</h2>
-
-        {% include 'list-articles.html'%}
-
+        
+        {% include 'form-user.html'%}
+        
         {% include 'footer.html'%}
-
+    
     {% endblock %}
 
 </body>

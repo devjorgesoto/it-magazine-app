@@ -1,0 +1,9 @@
+{% for comment in comments_obj_by_article %}
+                
+        <ul style="list-style-type:none;">
+            <li><strong>{{ comment.user.first_name }} {{ comment.user.last_name }}</strong> <a style="color: rgb(100, 100, 100);"> &nbsp {{ comment.date_published }}</a></li> 
+            <br>
+            <li>{{ comment.body }} </li>
+        </ul>
+    
+{% endfor %}

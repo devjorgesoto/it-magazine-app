@@ -28,20 +28,15 @@
             
             <li><h2>Articles</h2></li>
 
-                {% for article in article_obj %}
+                {% for article in article_obj_by_user %}
 
-                    <!--This line filter articles by user-->
-                    {% if article.user.id == user_obj.id %} 
-                       
-                        <il><a href="{% url 'article' article.id %}"><strong>{{ article.headline }}</strong></a></il>
+                        <li><a href="{% url 'article' article.id %}"><strong>{{ article.headline }}</strong></a></li>
                         <br>
-                        <il><a href="{% url 'user' article.user.id %}">{{ article.user.first_name }} {{ article.user.last_name }}</a></il> <!-- Hard Bug here Be consistent with url path article.user.id -->
+                        <li><a href="{% url 'user' article.user.id %}">{{ article.user.first_name }} {{ article.user.last_name }}</a></li> <!-- Hard Bug here Be consistent with url path article.user.id -->
                         <br>
-                        <il>{{ article.description }} </il>
+                        <li>{{ article.description }} </li>
                         <br>
                         <br>
-
-                    {% endif %}
 
                 {% endfor %}
         </ul>

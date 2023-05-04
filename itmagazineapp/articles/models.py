@@ -24,14 +24,14 @@ class Article (models.Model):
     description = models.TextField (max_length=160)
     body = models.TextField (max_length=4000)
     
-    date_published = models.DateField() # not in forms
+    date_published = models.DateField(auto_now=True) # not in forms
     location = models.CharField(max_length=30, null=True, blank=True)
 
     #approve = models.IntegerField(null=True) # not in forms
     #tags = models.CharField(max_length=30,null=True, blank=True) # not in forms # create class?
     #reading_time = models.IntegerField() # not in forms
     
-    # cover_image = models.ImageField() 
+    cover_image = models.ImageField(upload_to='pics')
 
 
 class Comment (models.Model):
@@ -39,7 +39,7 @@ class Comment (models.Model):
     user = models.ForeignKey (User, on_delete=models.CASCADE)
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
 
-    #date_published = models.DateField()
+    date_published = models.DateField(auto_now=True)
     body = models.TextField (max_length=4000)
     #approve = models.IntegerField(null=True)
 

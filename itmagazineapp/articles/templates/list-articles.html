@@ -1,0 +1,11 @@
+{% for article in article_obj %}
+
+    <ul style="list-style-type:none;">
+        <li><a href="{% url 'article' article.id %}"><strong>{{ article.headline }}</strong></a></li>
+        <br>
+        <li><a href="{% url 'user' article.user.id %}">{{ article.user.first_name }} {{ article.user.last_name }}</a></li> <!-- Hard Bug here Be consistent with url path article.user.id -->
+        <br>
+        <li>{{ article.description }} </li>
+    </ul>
+
+{% endfor %}

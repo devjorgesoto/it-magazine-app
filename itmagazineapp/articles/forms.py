@@ -16,4 +16,14 @@ class ArticleForm (ModelForm):
 class CommentForm (ModelForm):
     class Meta:
         model= Comment
-        fields= "__all__"
+        fields= ['body']
+        widgets = {'body': forms.Textarea(attrs={'placeholder':' Add a comment... '})}
+        
+
+# notes
+# remember fields are fields, and ALWAYS will appear as fields if it is "__all__"
+
+# read this information 
+# 1.https://docs.djangoproject.com/en/4.2/topics/forms/modelforms/ 
+# 2.Section "Selecting the fields to use" 
+# 3.Note area.

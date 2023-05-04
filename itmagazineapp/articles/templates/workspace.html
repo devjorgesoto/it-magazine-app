@@ -18,48 +18,19 @@
 
         {% for article in article_obj%}
 
-            <ul>
+            <ul style="list-style-type:none;">
 
-                <il><a href="{% url 'article' article.user.id %}"><strong>{{article.headline}}</strong></a></il>
+                <li><a href="{% url 'article' article.user.id %}"><strong>{{article.headline}}</strong></a></li>
                 <br>
-                <il>{{article.user.first_name}} {{article.user.last_name}}</il>
+                <li>{{article.user.first_name}} {{article.user.last_name}}</li>
 
             </ul>
 
         {% endfor %}
 
-    <h2>Start new article</h2>
+        <h2>Start new article</h2>
 
-        <form action= "" method="POST"> {% csrf_token %} 
-            
-            <ul style="list-style-type:none;">
-                
-                <li><strong>User</strong></li>
-                <li>{{ form_article.user }}</li>
-                <br>
-                <li><strong>Headline</strong></li>
-                <li>{{ form_article.headline }}</li>
-                <br>
-                <li><strong>Description</strong></li>
-                <li>{{ form_article.description }}</li>
-                <br>
-                <li><strong>Body</strong></li>
-                <li>{{ form_article.body }}</li>
-                <br>
-
-                <li><strong>Date</strong></li>
-                <li>{{ form_article.date_published }}</li>
-                <br>
-                <li><strong>Location</strong></li>
-                <li>{{ form_article.location }}</li>
-                <br>
-                <br>
-
-                <input type="submit" value = "Publish"/>
-
-            </ul>
-            
-        </form>
+        {% include 'form-article.html'%}
 
         {% include 'footer.html'%}
 

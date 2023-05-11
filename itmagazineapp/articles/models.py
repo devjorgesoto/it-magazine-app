@@ -31,7 +31,7 @@ class Article (models.Model):
     #tags = models.CharField(max_length=30,null=True, blank=True) # not in forms # create class?
     #reading_time = models.IntegerField() # not in forms
     
-    cover_image = models.ImageField(upload_to='pics')
+    #cover_image = models.ImageField(upload_to='pics', null=True)
 
 
 class Comment (models.Model):

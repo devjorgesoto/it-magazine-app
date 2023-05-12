@@ -40,7 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'users.apps.UsersConfig',
+    'userimages.apps.UserimagesConfig', 
+
     'articles.apps.ArticlesConfig',
+    'articleimages.apps.ArticleimagesConfig', 
+
+    'comments.apps.CommentsConfig',
+    'tags.apps.TagsConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -84,10 +92,40 @@ WSGI_APPLICATION = 'itmagazineapp.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
+
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
+
+    #'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': BASE_DIR / 'db.sqlite3',
+    #},
+
+    'users_db': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'users.db.sqlite3',
+    },
+
+    'articles_db': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'articles.db.sqlite3',# dont forget to add app name here db.sqlite3 to articles.db.sqlite3
+    },
+
+
+
+
+#     'users_db': {
+#     'ENGINE': 'django.db.backends.postgresql',
+#     'NAME': 'users-db',
+#     'USER':'postgres',
+#     'PASSWORD': 'HGW4H03O!Lz2^7*sx082QZJpPiSRNIc1oCZ!UGNhPFKC5v0VEn',
+#     'HOST':'localhost',
+#     'PORT': '5432'
+# }
+
+
 }
 
 
@@ -132,7 +170,13 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+DATABASE_ROUTERS = [ 
+    
+    'itmagazineapp.routers.db_routers.UsersRouter',
+    'itmagazineapp.routers.db_routers.ArticlesRouter',
+    ]
+
 # Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-fielditmagazineapp/itmagazineapp/routers/db_routers.py
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

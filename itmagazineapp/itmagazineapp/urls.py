@@ -20,7 +20,16 @@ from django.conf.urls.static import static
 
 urlpatterns = [
 
-    path('', include("articles.urls")), 
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+
+    path('', include("articles.urls")), # fix this url afters all apps are corectly working
+    #path('articleimages/', include("articleimages.urls")),
+
+    path('users/', include("users.urls")),
+    #path('userimages/', include("userimages.urls")),
+
+    #path('tags/', include("tags.urls")),
+    #path('comments/', include("comments.urls")),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

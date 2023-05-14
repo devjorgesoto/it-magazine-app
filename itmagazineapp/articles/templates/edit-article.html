@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    {% block content %}
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,15 +13,13 @@
 </head>
 <body>
 
-    {% block content %}
-
-        {% include 'topnav.html'%}
+        {% include 'itmagazineapp/topnav.html'%}
         
         <h2>Edit article</h2>
 
         {% include 'form-article.html'%}
 
-        {% include 'footer.html'%}
+        {% include 'itmagazineapp/footer.html'%}
     
     {% endblock %}
 

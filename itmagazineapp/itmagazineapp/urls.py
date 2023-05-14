@@ -22,7 +22,7 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
 
-    path('', include("articles.urls")), # fix this url afters all apps are corectly working
+    path('articles/', include("articles.urls")), # fix this url afters all apps are corectly working
     #path('articleimages/', include("articleimages.urls")),
 
     path('users/', include("users.urls")),

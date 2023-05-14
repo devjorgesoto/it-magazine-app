@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% block content %}
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Test</title>
+    <title>Sign Up</title>
 
 </head>
 <body>
 
-    {% block content %}
+        {% include 'itmagazineapp/topnav.html'%}
 
-        {% include 'topnav.html'%}
-        
-        {% include 'form-user.html'%}
-        
-        {% include 'footer.html'%}
-    
+        <h2>Sign Up</h2>
+
+        {% include 'users/form-user.html'%}
+
+        {% include 'itmagazineapp/footer.html'%}
+
     {% endblock %}
+   
 
 </body>
 </html>

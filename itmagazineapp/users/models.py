@@ -14,5 +14,5 @@ class User(models.Model):
     long_description = models.TextField (max_length=1000, blank=True)
 
     class Meta:
-        db_table = 'user_db_table'
+        db_table = 'user_table'
  

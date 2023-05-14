@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import UserForm, ArticleForm, CommentForm
-from .models import User, Article, Comment
+from .forms import ArticleForm, CommentForm
+from .models import Article, Comment
+from .article_db_test import prepopulate_db_article
 import datetime
 
 # global variables
@@ -13,20 +14,11 @@ def home(request):
 
     article_obj = Article.objects.all()
 
+    prepopulate_db_article()
+
     # context and return
     context = {'article_obj' : article_obj }
     return render(request, 'home.html', context)
-
-def sign_up(request):
-    
-    form_user = UserForm(request.POST or None)
-
-    if form_user.is_valid():
-      form_user.save()   
-
-    # context and return
-    context = {'form_user':form_user }
-    return render (request, "sign_up.html", context )
 
 def workspace (request):
 
@@ -42,49 +34,6 @@ def workspace (request):
     # context and return
     context = {'article_obj':article_obj, 'form_article':form_article,}
     return render (request, "workspace.html", context )   
-
-def user(request, user_id):
-    
-    user_obj = User.objects.get(id=user_id)
-
-    # all articles without filter
-    # in html call this as 'article_obj'
-    article_obj = Article.objects.all()
-
-    # all articles filtered by user
-    # in html call this filter as 'article_obj_by_user'
-    article_obj_by_user = []
-
-    for article in article_obj:
-
-        if article.user.id == user_id:
-
-            article_obj_by_user.append(article)
-
-    # context and return
-    context = {'user_obj':user_obj, 'article_obj':article_obj, 'article_obj_by_user':article_obj_by_user}
-    return render (request,"user.html", context)
-
-def edit_user(request ,user_id):
-    
-    user_obj= User.objects.get(id=user_id)
-
-    # show existing article in edit(form) mode. just show !!!
-    # for new forms => form_article = ArticleForm(request.POST or None)
-    form_user = UserForm(instance=user_obj) 
-    
-    # update edited article
-    # this if keeps form pre-populated, without this line = blank form
-    if request.method == 'POST': 
-        form_user = UserForm(request.POST, instance=user_obj)
-
-        if form_user.is_valid():
-                form_user.save()
-                return redirect('/user/'+ str(user_obj.id))
-
-    # context and return
-    context = {'user_obj' : user_obj, 'form_user' : form_user }
-    return render (request, "edit-user.html", context)
 
 def article(request ,article_id):
     
@@ -134,5 +83,5 @@ def edit_article(request ,article_id):
     context = {'article_obj' : article_obj, 'form_article' : form_article }
     return render (request, "edit-article.html", context)
 
-# utils functions
+
     

@@ -13,6 +13,10 @@ class Article (models.Model):
     date_published = models.DateField(auto_now=True) # not in forms
     location = models.CharField(max_length=30, null=True, blank=True)
 
+    class Meta:
+        db_table = 'article_table'
+ 
+
     #approve = models.IntegerField(null=True) # not in forms
     #tags = models.CharField(max_length=30,null=True, blank=True) # not in forms # create class?
     #reading_time = models.IntegerField() # not in forms
@@ -29,7 +33,9 @@ class Comment (models.Model):
     body = models.TextField (max_length=4000)
     #approve = models.IntegerField(null=True)
 
-    #user_profile_image = models.ImageField() 
+    #user_profile_image = models.ImageField()
+    class Meta:
+        db_table = 'comment_table'
 
 
 #class Tags (models.Model) #? Remove tags in articles.

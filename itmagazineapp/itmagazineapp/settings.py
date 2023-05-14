@@ -69,7 +69,7 @@ TEMPLATES = [
 
         'DIRS': [
             
-            os.path.join (BASE_DIR, 'templates'),
+            os.path.join (BASE_DIR, 'itmagazineapp/templates'),
 
         ],
 
@@ -98,23 +98,15 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     },
 
-    #'default': {
-    #    'ENGINE': 'django.db.backends.sqlite3',
-    #    'NAME': BASE_DIR / 'db.sqlite3',
+    #'users_db': {
+     #   'ENGINE': 'django.db.backends.sqlite3',
+     #   'NAME': BASE_DIR / 'users.db.sqlite3',
     #},
 
-    'users_db': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'users.db.sqlite3',
-    },
-
-    'articles_db': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'articles.db.sqlite3',# dont forget to add app name here db.sqlite3 to articles.db.sqlite3
-    },
-
-
-
+    #'articles_db': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': BASE_DIR / 'articles.db.sqlite3', # dont forget to add app name here db.sqlite3 to articles.db.sqlite3
+    #},
 
 #     'users_db': {
 #     'ENGINE': 'django.db.backends.postgresql',
@@ -124,7 +116,6 @@ DATABASES = {
 #     'HOST':'localhost',
 #     'PORT': '5432'
 # }
-
 
 }
 
@@ -170,11 +161,11 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-DATABASE_ROUTERS = [ 
+# DATABASE_ROUTERS = [ 
     
-    'itmagazineapp.routers.db_routers.UsersRouter',
-    'itmagazineapp.routers.db_routers.ArticlesRouter',
-    ]
+#     'itmagazineapp.routers.db_routers.UsersRouter',
+#     'itmagazineapp.routers.db_routers.ArticlesRouter',
+#     ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-fielditmagazineapp/itmagazineapp/routers/db_routers.py

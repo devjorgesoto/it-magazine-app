@@ -1,7 +1,6 @@
-from django import forms
 from django.forms import ModelForm
 
-from .models import Article, Comment
+from .models import Article
 
 
 class ArticleForm (ModelForm):
@@ -9,12 +8,6 @@ class ArticleForm (ModelForm):
         model = Article
         fields = "__all__"
 
-class CommentForm (ModelForm):
-    class Meta:
-        model= Comment
-        fields= ['body']
-        widgets = {'body': forms.Textarea(attrs={'placeholder':' Add a comment... '})}
-        
 
 # notes
 # remember fields are fields, and ALWAYS will appear as fields if it is "__all__"

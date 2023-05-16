@@ -23,7 +23,7 @@ class Article (models.Model):
     
     #cover_image = models.ImageField(upload_to='pics', null=True)
 
-
+'''
 class Comment (models.Model):
     id = models.BigAutoField(primary_key=True)
     user = models.ForeignKey (User, on_delete=models.CASCADE)
@@ -36,20 +36,7 @@ class Comment (models.Model):
     #user_profile_image = models.ImageField()
     class Meta:
         db_table = 'comment_table'
-
+'''
 
 #class Tags (models.Model) #? Remove tags in articles.
 #class Approve (models.Model) #? Remove tags in articles.
-
-# class User(models.Model):
-
-#     id = models.BigAutoField(primary_key=True) # not in forms
-#     first_name = models.CharField(max_length=30)
-#     last_name= models.CharField(max_length=30)
-
-#     username = models.CharField(max_length=30)
-#     email = models.EmailField(max_length=30)
-#     password=models.CharField(max_length=30)
-
-#     short_description = models.TextField (max_length=160, blank=True)
-#     long_description = models.TextField (max_length=1000, blank=True)

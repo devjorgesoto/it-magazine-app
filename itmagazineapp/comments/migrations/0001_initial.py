@@ -10,22 +10,21 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('users', '0001_initial'),
+        ('articles', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Article',
+            name='Comment',
             fields=[
                 ('id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('headline', models.TextField(max_length=60)),
-                ('description', models.TextField(max_length=160)),
-                ('body', models.TextField(max_length=4000)),
                 ('date_published', models.DateField(auto_now=True)),
-                ('location', models.CharField(blank=True, max_length=30, null=True)),
+                ('body', models.TextField(max_length=4000)),
+                ('article', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='articles.article')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='users.user')),
             ],
             options={
-                'db_table': 'article_table',
+                'db_table': 'comment_table',
             },
         ),
     ]

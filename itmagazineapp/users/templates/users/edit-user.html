@@ -13,12 +13,20 @@
 </head>
 <body>
 
-        {% include 'itmagazineapp/topnav.html'%}
+    {% include 'itmagazineapp/topnav.html'%}
 
-        <h2>Edit User</h2>
-        
+    <ul style="list-style-type:none;">
+        <li><h2>Edit User</h2></li>
+        <li><img src="{{user_obj.edit_pic.url}}"  
+            style="object-fit:cover;
+                object-position: right;
+                width:200px;
+                height:300px;
+                border: solid 1px #CCC"></li> 
+    </ul>
+
         {% include 'users/form-user.html'%}
-        
+
         {% include 'itmagazineapp/footer.html'%}
     
     {% endblock %}

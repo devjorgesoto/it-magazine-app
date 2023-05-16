@@ -6,6 +6,13 @@
         <li><a href="{% url 'user' article.user.id %}">{{ article.user.first_name }} {{ article.user.last_name }}</a></li> <!-- Hard Bug here Be consistent with url path article.user.id -->
         <br>
         <li>{{ article.description }} </li>
+        <br/>
+        <li><img src="{{article.article_pic.url}}"  
+            style="object-fit:cover;
+                object-position: right;
+                width:150px;
+                height:100px;
+                border: solid 1px #CCC"> </li>
     </ul>
 
 {% endfor %}

@@ -49,7 +49,8 @@ def edit_user(request ,user_id):
     # update edited article
     # this if keeps form pre-populated, without this line = blank form
     if request.method == 'POST': 
-        form_user = UserForm(request.POST, instance=user_obj)
+         # request.FILES is needed to upload images in this form. HTML for must include enctype="multipart/form-data"
+        form_user = UserForm(request.POST, request.FILES, instance=user_obj)
 
         if form_user.is_valid():
                 form_user.save()

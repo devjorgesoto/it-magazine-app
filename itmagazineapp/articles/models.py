@@ -13,30 +13,14 @@ class Article (models.Model):
     date_published = models.DateField(auto_now=True) # not in forms
     location = models.CharField(max_length=30, null=True, blank=True)
 
+    article_pic = models.ImageField(default='milad-fakurian-unsplash-article.jpg')
+
     class Meta:
         db_table = 'article_table'
  
-
     #approve = models.IntegerField(null=True) # not in forms
     #tags = models.CharField(max_length=30,null=True, blank=True) # not in forms # create class?
     #reading_time = models.IntegerField() # not in forms
     
-    #cover_image = models.ImageField(upload_to='pics', null=True)
-
-'''
-class Comment (models.Model):
-    id = models.BigAutoField(primary_key=True)
-    user = models.ForeignKey (User, on_delete=models.CASCADE)
-    article = models.ForeignKey(Article, on_delete=models.CASCADE)
-
-    date_published = models.DateField(auto_now=True)
-    body = models.TextField (max_length=4000)
-    #approve = models.IntegerField(null=True)
-
-    #user_profile_image = models.ImageField()
-    class Meta:
-        db_table = 'comment_table'
-'''
-
 #class Tags (models.Model) #? Remove tags in articles.
 #class Approve (models.Model) #? Remove tags in articles.

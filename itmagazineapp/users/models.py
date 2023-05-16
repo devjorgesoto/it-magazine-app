@@ -13,6 +13,8 @@ class User(models.Model):
     short_description = models.TextField (max_length=160, blank=True)
     long_description = models.TextField (max_length=1000, blank=True)
 
+    user_pic = models.ImageField(default='milad-fakurian-unsplash-user.jpg')
+
     class Meta:
         db_table = 'user_table'
  

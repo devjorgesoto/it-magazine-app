@@ -82,8 +82,9 @@ def edit_article(request ,article_id):
     
     # update edited article
     # this if keeps form pre-populated, without this line = blank form
-    if request.method == 'POST': 
-        form_article = ArticleForm(request.POST, instance=article_obj)
+    if request.method == 'POST':
+        # request.FILES is needed to upload images in this form. HTML for must include enctype="multipart/form-data"
+        form_article = ArticleForm(request.POST, request.FILES, instance=article_obj)
     
         if form_article.is_valid():
             form_article.save()

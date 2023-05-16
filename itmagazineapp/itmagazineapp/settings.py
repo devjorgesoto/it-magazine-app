@@ -158,14 +158,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/images/'
 
-# DATABASE_ROUTERS = [ 
-    
-#     'itmagazineapp.routers.db_routers.UsersRouter',
-#     'itmagazineapp.routers.db_routers.ArticlesRouter',
-#     ]
+STATICFILES_DIR = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-fielditmagazineapp/itmagazineapp/routers/db_routers.py
